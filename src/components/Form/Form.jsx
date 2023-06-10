@@ -1,21 +1,17 @@
 import { useState } from 'react';
 import { FormStyle } from './Form.styled';
-import { useDispatch, useSelector } from 'react-redux';
 
 export const Form = ({ onSubmit }) => {
-  // const [name, setName] = useState('');
-  // const [number, setNumber] = useState('');
-  const { name, number } = useSelector(state => state);
-  console.log(name, number);
-  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
-        dispatch({ type: 'setName', payload: value });
+        setName(value);
         break;
       case 'number':
-        dispatch({ type: 'setNumber', payload: value });
+        setNumber(value);
         break;
       default:
         break;
@@ -29,8 +25,8 @@ export const Form = ({ onSubmit }) => {
   };
 
   const reset = () => {
-    dispatch({ type: 'setName', payload: '' });
-    dispatch({ type: 'setNumber', payload: '' });
+    setName('');
+    setNumber('');
   };
   return (
     <FormStyle onSubmit={handleSubmit}>
