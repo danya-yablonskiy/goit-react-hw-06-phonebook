@@ -1,6 +1,7 @@
 // import { nanoid } from 'nanoid';
 
 import { createAction } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 
 // export const setContactsAction = (contacts, name, number) => {
 //   return {
