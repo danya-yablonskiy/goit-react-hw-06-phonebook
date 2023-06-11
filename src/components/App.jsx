@@ -8,6 +8,7 @@ import {
   deleteContactAction,
   setContactsAction,
 } from 'store/actions';
+import { nanoid } from 'nanoid';
 
 export const App = () => {
   const {
@@ -27,7 +28,7 @@ export const App = () => {
       alert('Error!');
       return;
     }
-    dispatch(setContactsAction({ name, number }));
+    dispatch(setContactsAction({ id: nanoid(), name, number }));
   };
 
   const changeFilter = e => {
@@ -36,7 +37,7 @@ export const App = () => {
 
   const deleteContact = id => {
     const filterId = contacts.filter(contact => contact.id !== id);
-
+  
     dispatch(deleteContactAction(filterId));
   };
   return (
