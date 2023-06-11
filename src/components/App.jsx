@@ -18,12 +18,12 @@ export const App = () => {
   // }, [contacts]);
 
   const addContact = (name, number) => {
-    const duplicate = contacts.find(contact => contact.name === name);
+    const duplicate = contacts.contacts.find(contact => contact.name === name);
     if (duplicate) {
       alert('Error!');
       return;
     }
-    dispatch(setContactsAction(contacts, name, number));
+    dispatch(setContactsAction(contacts.contacts, name, number));
   };
 
   const changeFilter = e => {
@@ -31,7 +31,7 @@ export const App = () => {
   };
 
   const deleteContact = id => {
-    const filterId = contacts.filter(contact => contact.id !== id);
+    const filterId = contacts.contacts.filter(contact => contact.id !== id);
     dispatch(deleteContactAction(filterId));
   };
   return (
@@ -42,7 +42,7 @@ export const App = () => {
       <Filter onChange={changeFilter} value={filter} />
       <ContactList
         onClick={deleteContact}
-        contacts={contacts}
+        contacts={contacts.contacts}
         filter={filter}
       />
     </div>
