@@ -15,7 +15,7 @@ import { changeFilterAction } from './actions';
 // };
 
 export const filterReducer = createReducer(initStateFilter, {
-  [changeFilterAction]: (state, { payload  }) => {
-return state = payload
+  [changeFilterAction]: (state, { payload }) => {
+    return (state = payload);
   },
 });
