@@ -1,4 +1,5 @@
 import { contactsReducer } from './contactsReducer';
+import { deleteReducer } from './deleteReducer';
 import { filterReducer } from './filterReducer';
 
 // export const reducer = (state=initialState, action) => {
@@ -14,4 +15,5 @@ import { filterReducer } from './filterReducer';
 export const reducer = {
   contacts: contactsReducer,
   filter: filterReducer,
+  deleteContacts: deleteReducer
 };
