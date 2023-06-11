@@ -20,7 +20,6 @@ import { nanoid } from 'nanoid';
 
 export const contactsReducer = createReducer(initStateContacts, {
   [setContactsAction]: (state, { payload: { name, number } }) => {
-
     state.contacts.push({ id: nanoid(), name, number });
   },
 });
