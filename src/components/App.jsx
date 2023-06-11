@@ -10,18 +10,13 @@ import {
 } from 'store/actions';
 
 export const App = () => {
-  const { contacts, filter } = useSelector(state =>
-    console.log(state.contacts)
-  );
-  console.log(filter);
+  const { contacts, filter } = useSelector(state => state);
+
+  console.log(contacts.contacts);
   const dispatch = useDispatch();
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   const addContact = (name, number) => {
     const duplicate = contacts.find(contact => contact.name === name);
-    console.log(duplicate);
     if (duplicate) {
       alert('Error!');
       return;
