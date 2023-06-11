@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { setContacts } from 'store/contactsSlice';
 import { setFilter } from 'store/filterSlice';
+import { deleteContacts } from 'store/deleteSlice';
 
 export const App = () => {
   const {
@@ -34,7 +35,7 @@ export const App = () => {
 
   const deleteContact = id => {
     // const filterId = contacts.filter(contact => contact.id !== id);
-    dispatch(deleteContact(id));
+    dispatch(deleteContacts(id));
   };
   return (
     <div>
