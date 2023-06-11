@@ -33,8 +33,8 @@ export const App = () => {
   };
 
   const deleteContact = id => {
-    const filterId = contacts.filter(contact => contact.id !== id);
-    dispatch(deleteContact(filterId));
+    // const filterId = contacts.filter(contact => contact.id !== id);
+    dispatch(deleteContact(id));
   };
   return (
     <div>
