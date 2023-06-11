@@ -10,7 +10,10 @@ import {
 } from 'store/actions';
 
 export const App = () => {
-  const { contacts, filter } = useSelector(state => state);
+  const {
+    contacts: { contacts },
+    filter,
+  } = useSelector(state => state);
 
   const dispatch = useDispatch();
   // useEffect(() => {
@@ -18,12 +21,13 @@ export const App = () => {
   // }, [contacts]);
 
   const addContact = (name, number) => {
-    const duplicate = contacts.contacts.find(contact => contact.name === name);
+    const duplicate = contacts.find(contact => contact.name === name);
+
     if (duplicate) {
       alert('Error!');
       return;
     }
-    dispatch(setContactsAction(contacts.contacts, name, number));
+    dispatch(setContactsAction({ name, number}))
   };
 
   const changeFilter = e => {
@@ -31,7 +35,7 @@ export const App = () => {
   };
 
   const deleteContact = id => {
-    const filterId = contacts.contacts.filter(contact => contact.id !== id);
+    const filterId = contacts.filter(contact => contact.id !== id);
     dispatch(deleteContactAction(filterId));
   };
   return (
@@ -42,7 +46,7 @@ export const App = () => {
       <Filter onChange={changeFilter} value={filter} />
       <ContactList
         onClick={deleteContact}
-        contacts={contacts.contacts}
+        contacts={contacts}
         filter={filter}
       />
     </div>
