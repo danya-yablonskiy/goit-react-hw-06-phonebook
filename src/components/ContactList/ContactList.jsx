@@ -1,5 +1,6 @@
 import { ListItem, Button, List } from './ContactList.styled';
 export const ContactList = ({ onClick, contacts, filter }) => {
+console.log(contacts);
   const filterName = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
