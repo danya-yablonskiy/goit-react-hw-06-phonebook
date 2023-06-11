@@ -3,7 +3,6 @@ import { Form } from './Form/Form';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContactAction } from 'store/actions';
 import { nanoid } from 'nanoid';
 import { setContacts } from 'store/contactsSlice';
 import { setFilter } from 'store/filterSlice';
@@ -35,7 +34,6 @@ export const App = () => {
 
   const deleteContact = id => {
     const filterId = contacts.filter(contact => contact.id !== id);
-    console.log(filterId);
     dispatch(deleteContact(filterId));
   };
   return (
