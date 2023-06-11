@@ -11,7 +11,7 @@ import {
 
 export const App = () => {
   const { contacts, filter } = useSelector(state => state);
-  console.log(contacts);
+
   const dispatch = useDispatch();
   // useEffect(() => {
   //   localStorage.setItem('contacts', JSON.stringify(contacts));
