@@ -10,7 +10,8 @@ import { deleteContactAction } from './actions';
 // };
 
 export const deleteReducer = createReducer(initStateContacts, {
-  [deleteContactAction]: (state, { payload }) => {
-    console.log(payload);
+    [deleteContactAction]: (state, { payload }) => {
+        console.log(payload);
+        state.contacts = payload;
   },
 });
