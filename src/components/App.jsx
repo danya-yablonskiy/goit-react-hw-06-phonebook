@@ -27,7 +27,7 @@ export const App = () => {
       alert('Error!');
       return;
     }
-    dispatch(setContactsAction({ name, number}))
+    dispatch(setContactsAction({ name, number }));
   };
 
   const changeFilter = e => {
@@ -36,6 +36,7 @@ export const App = () => {
 
   const deleteContact = id => {
     const filterId = contacts.filter(contact => contact.id !== id);
+
     dispatch(deleteContactAction(filterId));
   };
   return (
