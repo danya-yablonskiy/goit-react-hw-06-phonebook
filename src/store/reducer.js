@@ -1,7 +1,7 @@
 
 import { contactsReducer } from './contactsSlice';
-import { deleteReducer } from './deleteReducer';
 import { filterReducer } from './filterSlice';
+import { deleteReducer } from './deleteSlice';
 
 
 export const reducer = {
