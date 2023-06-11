@@ -4,9 +4,8 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { setContacts } from 'store/contactsSlice';
+import { deleteContacts, setContacts } from 'store/contactsSlice';
 import { setFilter } from 'store/filterSlice';
-import { deleteContacts } from 'store/deleteSlice';
 
 export const App = () => {
   const {
@@ -15,9 +14,6 @@ export const App = () => {
   } = useSelector(state => state);
 
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
 
   const addContact = (name, number) => {
     const duplicate = contacts.find(contact => contact.name === name);
@@ -34,7 +30,6 @@ export const App = () => {
   };
 
   const deleteContact = id => {
-    // const filterId = contacts.filter(contact => contact.id !== id);
     dispatch(deleteContacts(id));
   };
   return (
