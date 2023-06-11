@@ -6,6 +6,7 @@ const deleteSlice = createSlice({
   initialState: initStateContacts,
   reducers: {
     deleteContacts: (state, { payload }) => {
+      console.log(state.contacts);
       state.contacts = state.contacts.filter(contact => contact.id !== payload);
     },
   },
