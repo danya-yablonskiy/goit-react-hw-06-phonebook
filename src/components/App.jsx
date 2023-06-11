@@ -36,7 +36,7 @@ export const App = () => {
   const deleteContact = id => {
     const filterId = contacts.filter(contact => contact.id !== id);
     console.log(filterId);
-    dispatch(deleteContactAction(filterId));
+    dispatch(deleteContact(filterId));
   };
   return (
     <div>
