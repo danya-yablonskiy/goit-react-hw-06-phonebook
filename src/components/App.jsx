@@ -9,6 +9,8 @@ import {
   setContactsAction,
 } from 'store/actions';
 import { nanoid } from 'nanoid';
+import { setContacts } from 'store/contactsSlice';
+import { setFilter } from 'store/filterSlice';
 
 export const App = () => {
   const {
@@ -28,16 +30,16 @@ export const App = () => {
       alert('Error!');
       return;
     }
-    dispatch(setContactsAction({ id: nanoid(), name, number }));
+    dispatch(setContacts({ id: nanoid(), name, number }));
   };
 
   const changeFilter = e => {
-    dispatch(changeFilterAction(e.currentTarget.value));
+    dispatch(setFilter(e.currentTarget.value));
   };
 
   const deleteContact = id => {
     const filterId = contacts.filter(contact => contact.id !== id);
-
+    console.log(filterId);
     dispatch(deleteContactAction(filterId));
   };
   return (
