@@ -1,3 +1,1 @@
-export const initStateFilter = {
-  filter: '',
-};
+export const initStateFilter = '';
