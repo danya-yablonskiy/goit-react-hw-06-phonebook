@@ -6,7 +6,8 @@ import { nanoid } from "nanoid";
   name: 'SETCONTACTS',
   initialState: initStateContacts,
   reducers: {
-    setContacts: (state, { payload: { name, number } }) => {
+      setContacts: (state, { payload: { name, number } }) => {
+          console.log(state.contacts);
       state.contacts.push({ id: nanoid(), name, number });
     },
   },
