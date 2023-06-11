@@ -3,11 +3,7 @@ import { Form } from './Form/Form';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  changeFilterAction,
-  deleteContactAction,
-  setContactsAction,
-} from 'store/actions';
+import { deleteContactAction } from 'store/actions';
 import { nanoid } from 'nanoid';
 import { setContacts } from 'store/contactsSlice';
 import { setFilter } from 'store/filterSlice';
