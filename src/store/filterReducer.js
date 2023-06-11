@@ -10,8 +10,12 @@ import { changeFilterAction } from './actions';
 //   return state;
 // };
 
+// export const changeFilterAction = value => {
+//   return { type: SETFILTER, payload: value };
+// };
+
 export const filterReducer = createReducer(initStateFilter, {
-  [changeFilterAction]: (state, action) => {
-    return { ...state, filter: action.payload };
+  [changeFilterAction]: (state, { payload }) => {
+    console.log(payload);
   },
 });
