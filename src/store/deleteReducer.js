@@ -1,6 +1,6 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { initStateContacts } from "./initStateContacts";
-import { deleteContactAction } from "./actions";
+import { createReducer } from '@reduxjs/toolkit';
+import { initStateContacts } from './initStateContacts';
+import { deleteContactAction } from './actions';
 
 // export const deleteContactAction = filterId => {
 //   return {
@@ -10,7 +10,7 @@ import { deleteContactAction } from "./actions";
 // };
 
 export const deleteReducer = createReducer(initStateContacts, {
-    [deleteContactAction]: (state, {payload }) => { 
-     return payload
-    }
-})
+  [deleteContactAction]: (state, { payload }) => {
+    console.log(payload);
+  },
+});
