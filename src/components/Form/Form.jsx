@@ -1,9 +1,30 @@
 import { useState } from 'react';
 import { FormStyle } from './Form.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { setContacts } from 'store/contactsSlice';
+import { nanoid } from 'nanoid';
 
 export const Form = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const {
+    contacts: { contacts },
+  } = useSelector(state => state);
+
+  const dispatch = useDispatch();
+
+  const addContact = e => {
+    e.preventDefault();
+    const duplicate = contacts.find(contact => contact.name === name);
+
+    if (duplicate) {
+      alert('Error!');
+      return;
+    }
+
+    dispatch(setContacts({ id: nanoid(), name, number }));
+    reset();
+  };
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -18,18 +39,13 @@ export const Form = ({ onSubmit }) => {
     }
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    onSubmit(name, number);
-    reset();
-  };
-
   const reset = () => {
     setName('');
     setNumber('');
   };
+
   return (
-    <FormStyle onSubmit={handleSubmit}>
+    <FormStyle onSubmit={addContact}>
       <label>
         Name
         <br />
